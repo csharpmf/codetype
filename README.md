@@ -2,8 +2,6 @@
 
 A minimalist **code typing speed test** for developers. Practice typing real code snippets across 12 programming languages — right in your browser.
 
-![codetype preview](https://via.placeholder.com/900x400/323437/e2b714?text=codetype)
-
 ---
 
 ## Features
