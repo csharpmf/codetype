@@ -106,3 +106,5 @@ MIT — do whatever you want with it.
 ---
 
 *Built for developers who want to type code, not lorem ipsum.*
+
+**Preview: [codetype](https://csharpmf.github.io/codetype/)**
