@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>codetype</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="logo">
+                <span class="logo-icon">{ }</span>
+                <span class="logo-text">codetype</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="timer-display" id="timerDisplay">--</div>
+            <button class="icon-btn" id="themeBtn" title="Toggle Theme">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="test-config">
+            <div class="config-group">
+                <button class="config-btn" data-type="mode" data-value="time">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    time
+                </button>
+                <button class="config-btn" data-type="mode" data-value="code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                    code
+                </button>
+            </div>
+
+            <div class="config-divider"></div>
+
+            <div class="config-group" id="timeGroup">
+                <button class="config-btn active" data-type="time" data-value="15">15</button>
+                <button class="config-btn" data-type="time" data-value="30">30</button>
+                <button class="config-btn" data-type="time" data-value="60">60</button>
+                <button class="config-btn" data-type="time" data-value="120">120</button>
+            </div>
+
+            <div class="config-group hidden" id="codeGroup">
+                <button class="config-btn" data-type="lines" data-value="5">5 lines</button>
+                <button class="config-btn active" data-type="lines" data-value="10">10 lines</button>
+                <button class="config-btn" data-type="lines" data-value="15">15 lines</button>
+            </div>
+
+            <div class="config-divider"></div>
+
+            <div class="config-group">
+                <button class="config-btn active" data-type="lang" data-value="javascript">javascript</button>
+                <button class="config-btn" data-type="lang" data-value="python">python</button>
+                <button class="config-btn" data-type="lang" data-value="typescript">typescript</button>
+                <button class="config-btn" data-type="lang" data-value="java">java</button>
+                <button class="config-btn" data-type="lang" data-value="html">html</button>
+                <button class="config-btn" data-type="lang" data-value="css">css</button>
+                <button class="config-btn" data-type="lang" data-value="cpp">c++</button>
+                <button class="config-btn" data-type="lang" data-value="go">go</button>
+                <button class="config-btn" data-type="lang" data-value="rust">rust</button>
+                <button class="config-btn" data-type="lang" data-value="csharp">c#</button>
+                <button class="config-btn" data-type="lang" data-value="php">php</button>
+                <button class="config-btn" data-type="lang" data-value="sql">sql</button>
+            </div>
+        </div>
+
+        <div class="test-area">
+            <div class="language-indicator" id="langIndicator">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                </svg>
+                javascript
+            </div>
+
+            <div class="code-display" id="codeDisplay"></div>
+            
+            <input 
+                type="text" 
+                id="hiddenInput" 
+                class="hidden-input"
+                autocomplete="off"
+                autocorrect="off"
+                autocapitalize="off"
+                spellcheck="false"
+            />
+
+            <div class="restart-prompt hidden" id="restartPrompt">
+                <button class="restart-btn" id="restartBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="1 4 1 10 7 10"></polyline>
+                        <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                    </svg>
+                    restart test
+                </button>
+            </div>
+        </div>
+
+        <div class="results hidden" id="results">
+            <div class="result-stats">
+                <div class="result-group">
+                    <div class="result-label">cpm</div>
+                    <div class="result-main">
+                        <div class="result-value" id="finalCpm">0</div>
+                    </div>
+                </div>
+                <div class="result-group">
+                    <div class="result-label">accuracy</div>
+                    <div class="result-main">
+                        <div class="result-value" id="finalAccuracy">0%</div>
+                    </div>
+                </div>
+                <div class="result-group">
+                    <div class="result-label">errors</div>
+                    <div class="result-main">
+                        <div class="result-value error" id="finalErrors">0</div>
+                    </div>
+                </div>
+                <div class="result-group">
+                    <div class="result-label">time</div>
+                    <div class="result-main">
+                        <div class="result-value" id="finalTime">0s</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
