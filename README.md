@@ -101,7 +101,7 @@ Change these to create your own color scheme.
 
 ## License
 
-MIT — do whatever you want with it.
+MIT — use it for what you want.
 
 ---
 
