@@ -74,8 +74,7 @@ Open `script.js` and find the `codeSnippets` object. Add a new string to any lan
 
 ```js
 javascript: [
-  // existing snippets...
-  `function yourNewSnippet() {\n  // your code here\n}`
+  `function yourNewSnippet() {\n  // code\n}`
 ]
 ```
 
@@ -91,7 +90,7 @@ Colors are defined as CSS variables in `:root` (dark) and `body.light-theme` (li
 --bg-color:      #323437;
 --sub-color:     #646669;
 --text-color:    #d1d0c5;
---main-color:    #e2b714;   /* accent / caret / correct */
+--main-color:    #e2b714;  
 --error-color:   #ca4754;
 ```
 
@@ -105,6 +104,5 @@ MIT — use it for what you want.
 
 ---
 
-*Built for developers who want to type code, not lorem ipsum.*
 
-**Preview: [codetype](https://csharpmf.github.io/codetype/)**
+**Preview: [codetype](https://codetype.kodexglobal.cc/)**
